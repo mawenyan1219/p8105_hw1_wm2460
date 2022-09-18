@@ -1,16 +1,37 @@
 ---
 title: "HW 1"
 output: html_document
-date: "2022-09-18"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+data("penguins", package = "palmerpenguins")
+library(tidyverse)
+library(tibble)
+
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Question 1
+
+#### Description of "penguins" dataset
+
+The name of the penguins dataset are `r names(penguins)`.
+This data set contains physical traits information about the different species of penguins in some islands. 
+
+
+There are `r nrow(penguins)` observations and `r ncol(penguins)` variables in this dataset. 
+
+
+```{r}
+mean(penguins$flipper_length_mm,na.rm = TRUE)
+```
+
+
+The means flipper length is 200.9152.
+
+#### Scatterplot
+
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
