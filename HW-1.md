@@ -1,7 +1,7 @@
 HW 1
 ================
 
-## Question 1
+## Problem 1
 
 #### Description of “penguins” dataset
 
@@ -18,31 +18,43 @@ mean(penguins$flipper_length_mm,na.rm = TRUE)
 
     ## [1] 200.9152
 
-The means flipper length is 200.9152.
+The means flipper length is
+`mean(pull(.penguins, var = flipper_length_mm))`
+
+The means flipper length is 200.9152047
 
 #### Scatterplot
 
-When you click the **Knit** button a document will be generated that
-includes both content as well as the output of any embedded R code
-chunks within the document. You can embed an R code chunk like this:
-
 ``` r
-summary(cars)
+penguins_plot_df = tibble(
+  x = penguins$bill_length_mm,
+  y = penguins$flipper_length_mm,
+  Species = penguins$species
+)
+
+ggplot(penguins_plot_df, aes(x = x, y = y, color = Species)) + geom_point()
 ```
 
-    ##      speed           dist       
-    ##  Min.   : 4.0   Min.   :  2.00  
-    ##  1st Qu.:12.0   1st Qu.: 26.00  
-    ##  Median :15.0   Median : 36.00  
-    ##  Mean   :15.4   Mean   : 42.98  
-    ##  3rd Qu.:19.0   3rd Qu.: 56.00  
-    ##  Max.   :25.0   Max.   :120.00
+    ## Warning: Removed 2 rows containing missing values (geom_point).
 
-## Including Plots
+![](HW-1_files/figure-gfm/scatterplot_penguins-1.png)<!-- -->
 
-You can also embed plots, for example:
+ggsave(“penguins_plot.pdf”, height = 4, width = 6)
 
-![](HW-1_files/figure-gfm/pressure-1.png)<!-- -->
+## Problem 2
 
-Note that the `echo = FALSE` parameter was added to the code chunk to
-prevent printing of the R code that generated the plot.
+``` r
+p2_df = tibble(
+  norm_samp = rnorm(10),
+  norm_samp_pos = norm_samp > 0,
+  
+)
+
+samp = rnorm(100)
+length(samp)
+```
+
+    ## [1] 100
+
+la_df = tibble( norm_samp = rnorm(500, mean = 1), norm_samp_pos =
+norm_samp \> 0, abs_norm_samp = abs(norm_samp) )

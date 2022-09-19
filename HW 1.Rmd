@@ -4,15 +4,13 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 data("penguins", package = "palmerpenguins")
 library(tidyverse)
 library(tibble)
-
 ```
 
 
-## Question 1
+## Problem 1
 
 #### Description of "penguins" dataset
 
@@ -28,23 +26,36 @@ mean(penguins$flipper_length_mm,na.rm = TRUE)
 ```
 
 
-The means flipper length is 200.9152.
+The means flipper length is `mean(pull(.penguins, var = flipper_length_mm))`
+
+The means flipper length is `r mean(pull(penguins,flipper_length_mm), na.rm = TRUE)`
+
 
 #### Scatterplot
 
+```{r scatterplot_penguins}
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+penguins_plot_df = tibble(
+  x = penguins$bill_length_mm,
+  y = penguins$flipper_length_mm,
+  Species = penguins$species
+)
 
-```{r cars}
-summary(cars)
+ggplot(penguins_plot_df, aes(x = x, y = y, color = Species)) + geom_point()
 ```
 
-## Including Plots
+ggsave("penguins_plot.pdf", height = 4, width = 6)
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+## Problem 2
+
+```{r problem_2}
+p2_df = tibble(
+  norm_samp = rnorm(10),
+  norm_samp_pos = norm_samp > 0,
+  
+)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
