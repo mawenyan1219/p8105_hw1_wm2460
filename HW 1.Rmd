@@ -14,19 +14,10 @@ library(tibble)
 
 #### Description of "penguins" dataset
 
-The name of the penguins dataset are `r names(penguins)`.
+The name of the penguins dataset is `r names(penguins)`.
 This data set contains physical traits information about the different species of penguins in some islands. 
 
-
 There are `r nrow(penguins)` observations and `r ncol(penguins)` variables in this dataset. 
-
-
-```{r}
-mean(penguins$flipper_length_mm,na.rm = TRUE)
-```
-
-
-The means flipper length is `mean(pull(.penguins, var = flipper_length_mm))`
 
 The means flipper length is `r mean(pull(penguins,flipper_length_mm), na.rm = TRUE)`
 
@@ -42,20 +33,53 @@ penguins_plot_df = tibble(
 )
 
 ggplot(penguins_plot_df, aes(x = x, y = y, color = Species)) + geom_point()
-```
 
 ggsave("penguins_plot.pdf", height = 4, width = 6)
+```
 
 
 
 ## Problem 2
 
+#### Data frame & mean calculation
+
 ```{r problem_2}
-p2_df = tibble(
-  norm_samp = rnorm(10),
-  norm_samp_pos = norm_samp > 0,
-  
+problem2_df = tibble(
+  norm_samp = rnorm(10, mean = 0, sd = 1),
+  vec_logical = norm_samp > 0,
+  vec_char = c("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"),
+  vec_factor = factor(c("High", "Low", "Low", "Medium", "High", "High", "Medium", "Medium", "Low", "Medium"))
 )
+
+problem2_df
+
+mean(problem2_df$norm_samp)
+mean(problem2_df$vec_logical)
+mean(problem2_df$vec_char)
+mean(problem2_df$vec_factor)
+
 ```
 
+In this dataframe, we can calculate the mean if the vector is numeric or logical, and we cannot calculate the mean when the vector is character or factor. 
 
+#### Convert variable & discussion
+```{r convert_variables}
+
+#Convert logical to numeric
+convert_logical = as.numeric(problem2_df$vec_logical)
+
+#Convert character to numeric
+convert_char = as.numeric(problem2_df$vec_char)
+
+#Convert factor to numeric
+convert_factor = as.numeric(problem2_df$vec_factor)
+
+```
+
+Using thr `as.numeric` function, I was able to convert logical and factor vectors into numeric vector. However, when I tried to convert the character vector, I received the warning message saying `"NAs introduced by coercion"`. 
+
+For logical vector, the option is either `TRUE` or `FALSE`. So R assigns numeric value to these two options and we are able to find the means of the logical vector. 
+
+For character vector, it is impossible to calculate the mean or convert it to numeric and calculate the mean. 
+
+For factor vector, since there are 3 "levels" in the dataframe, it is possible to convert it into a numeric vector and calculate mean that way. 
