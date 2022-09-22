@@ -1,6 +1,8 @@
 ---
 title: "HW 1"
 output: github_document
+name: Wenyan Ma
+uni: wm2460
 ---
 
 ```{r setup, include=FALSE}
