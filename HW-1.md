@@ -54,28 +54,28 @@ problem2_df
     ## # A tibble: 10 × 4
     ##    norm_samp vec_logical vec_char vec_factor
     ##        <dbl> <lgl>       <chr>    <fct>     
-    ##  1   -0.723  FALSE       One      High      
-    ##  2    0.186  TRUE        Two      Low       
-    ##  3    0.671  TRUE        Three    Low       
-    ##  4   -1.45   FALSE       Four     Medium    
-    ##  5    2.12   TRUE        Five     High      
-    ##  6   -0.482  FALSE       Six      High      
-    ##  7    0.218  TRUE        Seven    Medium    
-    ##  8   -0.0542 FALSE       Eight    Medium    
-    ##  9   -0.466  FALSE       Nine     Low       
-    ## 10    0.973  TRUE        Ten      Medium
+    ##  1     0.137 TRUE        One      High      
+    ##  2     0.318 TRUE        Two      Low       
+    ##  3     0.448 TRUE        Three    Low       
+    ##  4    -0.690 FALSE       Four     Medium    
+    ##  5    -0.298 FALSE       Five     High      
+    ##  6    -0.251 FALSE       Six      High      
+    ##  7    -0.223 FALSE       Seven    Medium    
+    ##  8    -0.704 FALSE       Eight    Medium    
+    ##  9    -0.893 FALSE       Nine     Low       
+    ## 10    -0.937 FALSE       Ten      Medium
 
 ``` r
 mean(problem2_df$norm_samp)
 ```
 
-    ## [1] 0.09986607
+    ## [1] -0.3093193
 
 ``` r
 mean(problem2_df$vec_logical)
 ```
 
-    ## [1] 0.5
+    ## [1] 0.3
 
 ``` r
 mean(problem2_df$vec_char)
