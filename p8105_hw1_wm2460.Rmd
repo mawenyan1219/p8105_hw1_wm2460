@@ -1,5 +1,5 @@
 ---
-title: "HW 1"
+title: "P8105 HW 1"
 output: github_document
 name: Wenyan Ma
 uni: wm2460
@@ -8,7 +8,7 @@ uni: wm2460
 ```{r setup, include=FALSE}
 data("penguins", package = "palmerpenguins")
 library(tidyverse)
-library(tibble)
+
 ```
 
 
@@ -38,7 +38,6 @@ ggplot(penguins_plot_df, aes(x = x, y = y, color = Species)) + geom_point()
 
 ggsave("penguins_plot.pdf", height = 4, width = 6)
 ```
-
 
 
 ## Problem 2
@@ -80,8 +79,8 @@ convert_factor = as.numeric(problem2_df$vec_factor)
 
 Using thr `as.numeric` function, I was able to convert logical and factor vectors into numeric vector. However, when I tried to convert the character vector, I received the warning message saying `"NAs introduced by coercion"`. 
 
-For logical vector, the option is either `TRUE` or `FALSE`. So R assigns numeric value to these two options and we are able to find the means of the logical vector. 
+For the logical vector, the option is either `TRUE` or `FALSE`. So, R can assign numeric value to these two options, and we are able to find the means of the logical vector. 
 
-For character vector, it is impossible to calculate the mean or convert it to numeric and calculate the mean. 
+For the character vector, it is impossible to calculate the mean or convert it to numeric and calculate the mean. 
 
-For factor vector, since there are 3 "levels" in the dataframe, it is possible to convert it into a numeric vector and calculate mean that way. 
+For the factor vector, since there are 3 "levels" in the dataframe, it is possible to convert it into a numeric vector and calculate mean that way. 
