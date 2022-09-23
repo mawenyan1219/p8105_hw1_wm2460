@@ -8,7 +8,6 @@ uni: wm2460
 ```{r setup, include=FALSE}
 data("penguins", package = "palmerpenguins")
 library(tidyverse)
-
 ```
 
 
@@ -16,8 +15,8 @@ library(tidyverse)
 
 #### Description of "penguins" dataset
 
-The name of the penguins dataset is `r names(penguins)`.
-This data set contains physical traits information about the different species of penguins in some islands. 
+The variable names of the penguins dataset are `r names(penguins)`.
+This data set contains physical traits measurement information about the different species of penguins in some islands. 
 
 There are `r nrow(penguins)` observations and `r ncol(penguins)` variables in this dataset. 
 
