@@ -5,7 +5,7 @@ name: Wenyan Ma
 uni: wm2460
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
 knitr::opts_chunk$set(echo = TRUE)
 data("penguins", package = "palmerpenguins")
 library(tidyverse)
@@ -15,7 +15,8 @@ library(tidyverse)
 
 ## Problem 1
 
-#### Description of "penguins" dataset
+#### Description of the "penguins" dataset
+
 
 The "penguins" dataset is shown here:
 
@@ -24,6 +25,7 @@ head(penguins)
 ```
 
 The variable names of the penguins dataset are `r names(penguins)`.
+
 This data set contains physical traits measurement information about the different species of penguins on some islands. Some important variables that measure the physical characteristics of penguins include `flipper_length_mm`, `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`. 
 
 There are `r nrow(penguins)` observations and `r ncol(penguins)` variables in this dataset. 
@@ -71,6 +73,7 @@ mean(problem2_df$vec_factor)
 In this data frame, we can calculate the mean if the vector is numeric or logical, and we cannot calculate the mean when the vector is a character or factor. 
 
 #### Convert variables & discussions
+
 ```{r convert_variables}
 
 #Convert logical to numeric
@@ -88,13 +91,13 @@ Using the `as.numeric` function, I was able to convert logical and factor vector
 
 For the logical vector, the option is either `TRUE` or `FALSE`. So, R can assign numeric values to these two options, and we are able to find the means of the logical vector. 
 
-For the character vector, it is impossible to calculate the mean or convert it to numeric and calculate the mean. 
+For the character vector, it is impossible to calculate the mean or convert it to a numeric vector and calculate the mean that way. 
 
-For the factor vector, since there are 3 "levels" in the data frame, it is possible to convert it into a numeric vector and calculate the mean that way. 
+For the factor vector, since there are 3 "levels" (i.e., "Low", "Medium", "High") in the data frame, it is possible to convert the factor vector into a numeric vector by assigning numbers to each level and calculate the mean that way. 
+
+Therefore, the properties of different variable types and the process of converting variables helped explain what happens when I try to take the mean.
 
 
-
-
-##### End of HW 1
+#### End of HW 1
 
 
