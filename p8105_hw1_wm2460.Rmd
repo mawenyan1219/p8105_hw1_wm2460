@@ -1,22 +1,30 @@
 ---
-title: "P8105 HW 1"
+title: "P8105_hw1_wm2460"
 output: github_document
 name: Wenyan Ma
 uni: wm2460
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 data("penguins", package = "palmerpenguins")
 library(tidyverse)
 ```
+
 
 
 ## Problem 1
 
 #### Description of "penguins" dataset
 
+The "penguins" dataset is shown here:
+
+```{r penguins_description}
+head(penguins)
+```
+
 The variable names of the penguins dataset are `r names(penguins)`.
-This data set contains physical traits measurement information about the different species of penguins in some islands. 
+This data set contains physical traits measurement information about the different species of penguins on some islands. Some important variables that measure the physical characteristics of penguins include `flipper_length_mm`, `bill_length_mm`, `bill_depth_mm`, and `body_mass_g`. 
 
 There are `r nrow(penguins)` observations and `r ncol(penguins)` variables in this dataset. 
 
@@ -41,7 +49,7 @@ ggsave("penguins_plot.pdf", height = 4, width = 6)
 
 ## Problem 2
 
-#### Data frame & mean calculation
+#### Data frame & mean calculations
 
 ```{r problem_2}
 problem2_df = tibble(
@@ -60,9 +68,9 @@ mean(problem2_df$vec_factor)
 
 ```
 
-In this dataframe, we can calculate the mean if the vector is numeric or logical, and we cannot calculate the mean when the vector is character or factor. 
+In this data frame, we can calculate the mean if the vector is numeric or logical, and we cannot calculate the mean when the vector is a character or factor. 
 
-#### Convert variable & discussion
+#### Convert variables & discussions
 ```{r convert_variables}
 
 #Convert logical to numeric
@@ -76,10 +84,17 @@ convert_factor = as.numeric(problem2_df$vec_factor)
 
 ```
 
-Using thr `as.numeric` function, I was able to convert logical and factor vectors into numeric vector. However, when I tried to convert the character vector, I received the warning message saying `"NAs introduced by coercion"`. 
+Using the `as.numeric` function, I was able to convert logical and factor vectors into numeric vectors. However, when I tried to convert the character vector, I received the warning message saying `"NAs introduced by coercion"`. 
 
-For the logical vector, the option is either `TRUE` or `FALSE`. So, R can assign numeric value to these two options, and we are able to find the means of the logical vector. 
+For the logical vector, the option is either `TRUE` or `FALSE`. So, R can assign numeric values to these two options, and we are able to find the means of the logical vector. 
 
 For the character vector, it is impossible to calculate the mean or convert it to numeric and calculate the mean. 
 
-For the factor vector, since there are 3 "levels" in the dataframe, it is possible to convert it into a numeric vector and calculate mean that way. 
+For the factor vector, since there are 3 "levels" in the data frame, it is possible to convert it into a numeric vector and calculate the mean that way. 
+
+
+
+
+##### End of HW 1
+
+
